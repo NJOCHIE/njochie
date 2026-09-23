@@ -148,7 +148,7 @@ app.post('/api/public/:token/reveal', async (req, res) => {
 
 app.use('/m/:token', (req, res) => res.sendFile(path.join(__dirname, 'public', 'message.html')));
 app.use(express.static(path.join(__dirname, 'public')));
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+app.use((req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
 
 if (require.main === module) {
   app.listen(PORT, () => console.log(`Njochie running at http://localhost:${PORT}`));
